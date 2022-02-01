@@ -1,0 +1,404 @@
+/*
+Resetting styles
+*/
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+} 
+
+/*
+TEXT STYLES
+*/
+h1
+{
+    font-family: 'Walter Turncoat';
+    font-weight: 700;
+    color: black;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+h2
+{
+    font-family: 'Walter Turncoat';
+
+    color:black;
+    font-size: .6rem;
+}
+
+.title
+{
+    margin-top: -1.2rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding-bottom: 0;
+}
+
+.subtitle
+{
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+#container
+{
+    text-align: center;
+    background-color:aliceblue;
+    width:100%;
+    height: 100vh;
+    margin: 0%;
+}
+
+/*
+Header
+*/
+
+#header
+{
+    height: 10vh;
+    background-color: rgba(80, 132, 132, 1);
+    margin-bottom: -.5px;
+}
+
+#header h1
+{
+    padding: .25rem 0 0 0;
+    font-size: 2.5rem;
+    color: rgba(247, 240, 240, 1);
+    text-shadow: .3rem .25rem rgba(155, 138, 138, 0.747);
+
+}
+
+#headerShelf
+{
+    height: 2.5vh;
+    background-color: rgba(80, 132, 132, .9);
+}
+
+.parallelogramRed{
+	width: 21.4vw;
+	height: 2.5vh;
+	transform: skew(-40deg);
+	background-color: rgb(155, 47, 63);
+    
+}
+
+.parallelogramWhite{
+    margin: auto;
+    margin-top: 4%;
+    width: 90%;
+    height: 30%;
+    transform: skew(-7deg);
+	background-color: rgba(226, 226, 226, 0.822);
+}
+
+#paraOne
+{
+    margin: 0 6.3vw;
+    float: left;
+}
+
+#paraTwo
+{
+    margin: 0 5.5vw;
+	width: 22.1vw;
+    float: left;
+
+}
+
+#paraThree
+{
+    margin-left: 6.2vw;
+    float: left;
+
+}
+
+/*
+Main Boxes
+*/
+
+#mostConsistentBox
+{
+}
+
+#mostTraumatizingBox
+{
+}
+
+#biggestGapBox
+{
+    width: 34%;
+}
+
+.box
+{
+    width: 33%;
+    height: 87.5vh;
+    background-color: rgba(80, 132, 132, 1);
+    float: left;
+
+}
+
+.box h1
+{
+    color: white;
+}
+
+.banner h2
+{
+    color: rgba(247, 240, 240, 1);
+    line-height: 120%;
+    padding: 0 1.4rem;
+}
+
+.banner
+{
+    margin: auto;
+    text-align: center;
+    width: 65%;
+    height: 90%;
+    background-color: rgb(148, 28, 47);
+
+    clip-path: polygon(0% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%);
+
+}
+
+.bannerWhite
+{
+    position:absolute;
+    left:50%;
+    margin-left:-45%;
+    text-align: center;
+    width: 90%;
+    height: 97.5%;
+    background-color: rgba(226, 226, 226, 0.822);
+    outline-offset: -1rem;   
+
+    clip-path: polygon(0% 0%, 100% 0, 100% 86%, 50% 100%, 0 86%);
+}
+
+.bannerInner
+{
+    position:absolute;
+    left:50%;
+    margin-left:-47.5%;
+    text-align: center;
+    width: 95%;
+    height: 98.7%;
+    background-color: rgb(148, 28, 47);
+    outline-offset: -1rem;   
+
+    clip-path: polygon(0% 0%, 100% 0, 100% 86.5%, 50% 100%, 0 86.5%);
+}
+
+.bannerShadow
+{
+    margin: auto;
+    position:absolute;
+    left:50%;
+    margin-left:-30%;
+    text-align: center;
+    width: 65%;
+    height: 90.5%;
+    background-color: rgba(10, 10, 10, 0.747);
+
+    clip-path: polygon(0% 0%, 96% 0, 100% 85%, 50% 100%, 0 85%);
+}
+
+.banner #whiteHr
+{
+    width: 150%;
+    margin-left: -30%;
+    border-radius: 20%;
+    background-color: white;
+    text-align: left;
+}
+
+/*
+Images
+*/
+
+.championImage
+{
+    margin: auto;
+    padding: .5rem 0;
+    width: 4rem;
+    height: 4rem;
+
+}
+
+.championImageBox
+{
+    margin: auto;
+    text-align: center;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgba(10, 10, 10, 0);
+
+}
+
+
+/*
+Hacks
+*/
+
+.clearfix::after
+{
+    content:"";
+    clear: both;
+    display: table;
+}
+
+/*
+Gallery
+*/
+
+.inventory {
+    width: 6vw;
+    height: 4vw;
+    float:left;
+    padding: 1.5vh 0 3vh 1vw;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: repeat(2, 47.5%);
+    grid-gap: 5%;
+}
+
+.inventoryItemImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+.emptyItem
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+    object-fit: cover;
+    background-color: rgb(126, 25, 38);
+}
+
+/*
+Loading Screen
+*/
+.loader 
+{
+    position: fixed;
+    opacity: 1;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader h1
+{
+    font-family: 'Walter Turncoat';
+    font-weight: 400;
+}
+
+.loader.hidden 
+{
+    animation: fadeOut 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.bullets
+{
+    animation: dots 2s steps(3, end) infinite;
+}
+
+@keyframes fadeOut 
+{
+    100% 
+    {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -10;
+    }
+}
+
+@keyframes dots 
+{
+    0%, 20% 
+    {
+      color: rgba(255, 255, 255, 0);
+      text-shadow:
+        .25em 0 0 rgba(255, 255, 255, 0),
+        .5em 0 0 rgba(255, 255, 255, 0);
+    }
+    40% 
+    {
+      color: black;
+      text-shadow:
+        .25em 0 0 rgba(255, 255, 255, 0),
+        .5em 0 0 rgba(255, 255, 255, 0);}
+    60% 
+    {
+      text-shadow:
+        .25em 0 0 black,
+        .5em 0 0 rgba(255, 255, 255, 0);}
+    80%, 100% 
+    {
+      text-shadow:
+        .25em 0 0 black,
+        .5em 0 0 black;
+    }
+}
+
+/*
+Bar Graphs
+*/
+
+.barGraph
+{
+    margin: auto;
+    margin-bottom: .5rem;
+    text-align: left;
+    max-width: 17vw;
+    height: 8vh;
+}
+
+.barGraph h1
+{
+    float: left;
+    width: 2rem;
+    padding: .8rem 0 0 .5rem;
+    font-size: .5rem;
+}
+
+.vertLine
+{
+    float: left;
+    background-color: white;
+    width: .05vw;
+    margin-left: .5rem;
+    height: 8vh;
+}
+
+.barContainer
+{
+    float: left;
+    height: .4rem;
+    width: 10rem;
+    margin: .55rem 0;
+
+}
+.bar
+{
+    background-color: rgb(60, 78, 136);
+    background-color: rgb(59, 100, 67);
+
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}

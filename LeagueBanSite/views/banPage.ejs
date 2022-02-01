@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styleBanPage.css">
+    <link rel="stylesheet" href="/css/mobileview.css"media="(max-width: 600px)">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&family=Walter+Turncoat&display=swap" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Do I Ban?</title>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1> <%= banChamps.SEOPlayer.summonerName %>'s <s>Dodge</s> Ban List</h1> 
+        </div>
+
+        <div id="headerShelf">
+            <div id="paraOne" class="parallelogramRed">
+                <div class="parallelogramWhite"></div>
+            </div>
+            <div id="paraTwo" class="parallelogramRed">
+                <div class="parallelogramWhite"></div>
+            </div>
+            <div id="paraThree" class="parallelogramRed">
+                <div class="parallelogramWhite"></div>
+            </div>
+        </div>
+
+        <div id="mostTraumatizingBox" class="box">
+            <div class="bannerShadow"></div>
+            <div id="mostConsistentBanner" class="banner">
+                <div class="bannerWhite">
+                    <div class="bannerInner">
+                    </div>
+                </div>
+
+                <div class="championImageBox">
+                    <img src="/img/<%= banChamps.SEOData.championName %>.png" class="championImage">
+                </div>
+
+                <h1 class="title">
+                    <%= banChamps.SEOData.championName %>
+                </h1>
+
+                <h1 style="float:left;margin:auto;padding-left: 3vw;" class="subtitle">Build: </h1>
+
+                <div class="inventory">
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SEOData.item0 != 0){ %>
+                            <img src="img/<%= banChamps.SEOData.item0 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SEOData.item1 != 0){ %>
+                            <img src="img/<%= banChamps.SEOData.item1 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SEOData.item2 != 0){ %>
+                            <img src="img/<%= banChamps.SEOData.item2 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SEOData.item3 != 0){ %>
+                            <img src="img/<%= banChamps.SEOData.item3 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% }%>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SEOData.item4 != 0){ %>
+                            <img src="img/<%= banChamps.SEOData.item4 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SEOData.item5 != 0){ %>
+                            <img src="img/<%= banChamps.SEOData.item5 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                </div>
+
+                <h2 style="float:left; margin-top:2.5vh; padding:0 2.1vw 0 1.7vw">
+                    <%= banChamps.SEOData.kills %>/<%= banChamps.SEOData.deaths %>/<%= banChamps.SEOData.assists %> <hr id="whiteHr">
+                    <%= banChamps.SEOKP %>% KP <hr id="whiteHr">
+                    <%=banChamps.SEOData.neutralMinionsKilled + banChamps.SEOData.totalMinionsKilled %> (<%= ((banChamps.SEOData.neutralMinionsKilled + banChamps.SEOData.totalMinionsKilled)/banChamps.SEOMatchTime).toFixed(1) %>)
+                </h2>
+
+                <br clear="all">
+
+                <h2>
+                    You got absolutely destroyed by a <%= banChamps.SEOData.championName %> <%= banChamps.SEOGameNum%> game(s) ago
+                </h2>
+
+                <div class="barGraph" id="SEOChampDmg">
+                    <h1>Champion Damage</h1>
+                    <div class="vertLine"></div>
+                    <div class="barContainer">
+                        <% if( banChamps.SEOData.totalDamageDealtToChampions > banChamps.SEOPlayer.totalDamageDealtToChampions){ %>
+                            <div class="bar " style="width:100%;background-color: rgb(59, 100, 67);"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SEOData.totalDamageDealtToChampions / banChamps.SEOPlayer.totalDamageDealtToChampions * 100%>%;background-color: rgb(59, 100, 67);"></div>
+                        <% } %>
+                    </div>
+                    <div class="barContainer">
+                        <% if( banChamps.SEOPlayer.totalDamageDealtToChampions > banChamps.SEOData.totalDamageDealtToChampions){ %>
+                            <div class="bar " style="width:100%;"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SEOPlayer.totalDamageDealtToChampions / banChamps.SEOData.totalDamageDealtToChampions * 100%>%"></div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="barGraph" id="SEOTurretDmg">
+                    <h1>Tower Damage</h1>
+                    <div class="vertLine"></div>
+                    <div class="barContainer">
+                        <% if( banChamps.SEOData.damageDealtToTurrets > banChamps.SEOPlayer.damageDealtToTurrets){ %>
+                            <div class="bar " style="width:100%;background-color: rgb(59, 100, 67);"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SEOData.damageDealtToTurrets / banChamps.SEOPlayer.damageDealtToTurrets * 100%>%;background-color: rgb(59, 100, 67);"></div>
+                        <% } %>
+                    </div>
+                    <div class="barContainer">
+                        <% if( banChamps.SEOPlayer.damageDealtToTurrets > banChamps.SEOData.damageDealtToTurrets){ %>
+                            <div class="bar " style="width:100%"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SEOPlayer.damageDealtToTurrets / banChamps.SEOData.damageDealtToTurrets * 100%>%"></div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="barGraph" id="SEODmgTaken">
+                    <h1>Damage Taken</h1>
+                    <div class="vertLine"></div>
+                    <div class="barContainer">
+                        <% if( banChamps.SEOData.totalDamageTaken > banChamps.SEOPlayer.totalDamageTaken){ %>
+                            <div class="bar " style="width:100%;background-color: rgb(59, 100, 67);"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SEOData.totalDamageTaken / banChamps.SEOPlayer.totalDamageTaken * 100%>%;background-color: rgb(59, 100, 67);"></div>
+                        <% } %>
+                    </div>
+                    <div class="barContainer">
+                        <% if( banChamps.SEOPlayer.totalDamageTaken > banChamps.SEOData.totalDamageTaken){ %>
+                            <div class="bar " style="width:100%;"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SEOPlayer.totalDamageTaken / banChamps.SEOData.totalDamageTaken * 100%>%"></div>
+                        <% } %>
+                    </div>
+                </div>
+                
+            </div>       
+        </div>
+        
+        <div id="biggestGapBox" class="box">
+            <div class="bannerShadow"></div>
+            <div id="mostTraumatizingBanner" class="banner">
+
+                <div class="bannerWhite">
+                    <div class="bannerInner">
+                    </div>
+                </div>
+
+                <div class="championImageBox">
+                    <img src="/img/<%= banChamps.SELData.championName %>.png" class="championImage">
+                </div>
+
+                <h1 class="title">
+                    <%= banChamps.SELData.championName %>
+                </h1>
+
+                <h1 style="float:left;margin:auto;padding-left: 3vw;" class="subtitle">Build: </h1>
+
+                <div class="inventory">
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SELData.item0 != 0){ %>
+                            <img src="img/<%= banChamps.SELData.item0 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SELData.item1 != 0){ %>
+                            <img src="img/<%= banChamps.SELData.item1 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SELData.item2 != 0){ %>
+                            <img src="img/<%= banChamps.SELData.item2 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SELData.item3 != 0){ %>
+                            <img src="img/<%= banChamps.SELData.item3 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% }%>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SELData.item4 != 0){ %>
+                            <img src="img/<%= banChamps.SELData.item4 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                    <figure class="inventoryItem">
+                        <% if( banChamps.SELData.item5 != 0){ %>
+                            <img src="img/<%= banChamps.SELData.item5 %>.png" class="inventoryItemImg" alt="Image 1">
+                        <% } else { %>  
+                            <div class="emptyItem"></div>
+                        <% } %>
+                    </figure>
+                </div>
+
+                <h2 style="float:left; margin-top:2.5vh; padding:0 2vw">
+                    <%= banChamps.SELData.kills %>/<%= banChamps.SELData.deaths %>/<%= banChamps.SELData.assists %> <hr id="whiteHr">
+                    <%= banChamps.SELKP %>% KP <hr id="whiteHr">
+                    <%=banChamps.SELData.neutralMinionsKilled + banChamps.SELData.totalMinionsKilled %> (<%= ((banChamps.SELData.neutralMinionsKilled + banChamps.SELData.totalMinionsKilled)/banChamps.SELMatchTime).toFixed(1) %>)
+                </h2>
+
+                <br clear="all">
+
+                <h2>
+                    You got absolutely beat by a <%= banChamps.SELData.championName %> <%= banChamps.SELGameNum %> game(s) ago
+                </h2>
+
+                <div class="barGraph" id="SELChampDmg">
+                    <h1>Champion Damage</h1>
+                    <div class="vertLine"></div>
+                    <div class="barContainer">
+                        <% if( banChamps.SELData.totalDamageDealtToChampions > banChamps.SELPlayer.totalDamageDealtToChampions){ %>
+                            <div class="bar " style="width:100%;background-color: rgb(59, 100, 67);"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SELData.totalDamageDealtToChampions / banChamps.SELPlayer.totalDamageDealtToChampions * 100%>%;background-color: rgb(59, 100, 67);"></div>
+                        <% } %>
+                    </div>
+                    <div class="barContainer">
+                        <% if( banChamps.SELPlayer.totalDamageDealtToChampions > banChamps.SELData.totalDamageDealtToChampions){ %>
+                            <div class="bar " style="width:100%"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SELPlayer.totalDamageDealtToChampions / banChamps.SELData.totalDamageDealtToChampions * 100%>%"></div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="barGraph" id="SELTurretDmg">
+                    <h1>Tower Damage</h1>
+                    <div class="vertLine"></div>
+                    <div class="barContainer">
+                        <% if( banChamps.SELData.damageDealtToTurrets > banChamps.SELPlayer.damageDealtToTurrets){ %>
+                            <div class="bar " style="width:100%;background-color: rgb(59, 100, 67);"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SELData.damageDealtToTurrets / banChamps.SELPlayer.damageDealtToTurrets * 100%>%;background-color: rgb(59, 100, 67);"></div>
+                        <% } %>
+                    </div>
+                    <div class="barContainer">
+                        <% if( banChamps.SELPlayer.damageDealtToTurrets > banChamps.SELData.damageDealtToTurrets){ %>
+                            <div class="bar " style="width:100%"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SELPlayer.damageDealtToTurrets / banChamps.SELData.damageDealtToTurrets * 100%>%"></div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="barGraph" id="SELDmgTaken">
+                    <h1>Damage Taken</h1>
+                    <div class="vertLine"></div>
+                    <div class="barContainer">
+                        <% if( banChamps.SELData.totalDamageTaken > banChamps.SELPlayer.totalDamageTaken){ %>
+                            <div class="bar " style="width:100%;background-color: rgb(59, 100, 67);"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SELData.totalDamageTaken / banChamps.SELPlayer.totalDamageTaken * 100%>%;background-color: rgb(59, 100, 67);"></div>
+                        <% } %>
+                    </div>
+                    <div class="barContainer">
+                        <% if( banChamps.SELPlayer.totalDamageTaken > banChamps.SELData.totalDamageTaken){ %>
+                            <div class="bar " style="width:100%"></div>
+                        <% } else { %>  
+                            <div class="bar " style="width: <%= banChamps.SELPlayer.totalDamageTaken / banChamps.SELData.totalDamageTaken * 100%>%"></div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <form action="/index" method="POST">
+                    <button>Back</button>
+                </form>  
+            </div>
+        </div>
+
+        <div id="mostConsistentBox" class="box">
+            <div class="bannerShadow"></div>
+            <div id="biggestGapBanner" class="banner">
+                <div class="bannerWhite">
+                    <div class="bannerInner">
+                    </div>
+                </div>
+
+                <div class="championImageBox">
+                    <img src="/img/<%= banChamps.MCE.mostConsistentEnemy %>.png" class="championImage">
+                </div>
+
+                <h1 class="title">
+                    <%= banChamps.MCE.mostConsistentEnemy %>
+                </h1>
+
+                <h2>
+                    <%= banChamps.MCE.amountOfGames %>
+
+                </h2>
+            </div>
+        </div>
+
+        <div class="loader">
+            <h1>LOADING <span class="bullets">.</span></h1>
+          </div>
+
+        <script type="text/javascript">
+            window.addEventListener("load", function () {
+                const loader = document.querySelector(".loader");
+                loader.className += " hidden";
+            });
+        </script>
+
+    </div>
+   
+</body>
+
+</html>
